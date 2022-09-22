@@ -12,14 +12,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                compileOnly(kotlinx.serialization.core)
+                api(projects.snitchApi)
             }
         }
 
         val commonTest by getting {
             dependencies {
                 implementation(asoft.expect.coroutines)
-                implementation(projects.snitchFake)
                 implementation(kotlinx.serialization.json)
             }
         }

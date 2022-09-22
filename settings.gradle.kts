@@ -24,7 +24,7 @@ pluginManagement {
     }
 }
 
-val tmp = 0
+val tmp = 1
 
 fun includeRoot(name: String, path: String) {
     include(":$name")
@@ -40,4 +40,4 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
 
 rootProject.name = "picortex"
 
-includeSubs("snitch", ".", "api")
+includeSubs("snitch", ".", "api", "fake")
