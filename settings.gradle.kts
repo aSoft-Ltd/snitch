@@ -39,5 +39,7 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
 }
 
 rootProject.name = "picortex"
+// dependencies
+includeSubs("presenters", "../presenters", "actions")
 
 includeSubs("snitch", ".", "api", "fake")

@@ -1,28 +1,39 @@
 package snitch.internal
 
+import kotlinx.collections.interoperable.iMutableListOf
+import presenters.actions.ActionsBuilder
+import presenters.actions.SimpleAction
 import snitch.Bubble
 import snitch.BubbleBuilder
-import snitch.Snitch
+import snitch.Type
 
-data class BubbleBuilderImpl<I, B>(
+internal class BubbleBuilderImpl<I, B>(
     val title: String,
-    val snitch: Snitch
-) : BubbleBuilder<I, B> {
+    val type: Type,
+    val snitch: SnitchImpl
+) : ActionsBuilder<BubbleBuilder<I, B>, () -> Unit>, BubbleBuilder<I, B> {
     private var icon: I? = null
     private var body: B? = null
+    private var timeoutSeconds = Bubble.DEFAULT_TIMEOUT_SECONDS
+
+    private var actions = iMutableListOf<SimpleAction>()
 
     private fun build() = Bubble(
         title = title,
         icon = icon,
         body = body,
-        actions = listOf()
+        type = type,
+        timeoutSeconds = timeoutSeconds,
+        actions = actions
     )
 
     override fun show() {
         snitch.show(build())
     }
 
-    override fun on(action: String, handler: () -> Unit): BubbleBuilder<I, B> {
+    override fun on(name: String, handler: () -> Unit): BubbleBuilder<I, B> {
+        val action = SimpleAction(name, handler)
+        actions.add(action)
         return this
     }
 
@@ -33,6 +44,11 @@ data class BubbleBuilderImpl<I, B>(
 
     override fun withBody(b: B): BubbleBuilder<I, B> {
         body = b
+        return this
+    }
+
+    override fun withTimeoutSeconds(value: Int): BubbleBuilder<I, B> {
+        timeoutSeconds = value
         return this
     }
 }

@@ -3,9 +3,18 @@
 
 package snitch
 
+import kotlinx.collections.interoperable.List
+import live.Live
 import kotlin.js.JsExport
 
 interface Snitch {
-    fun makeNew(title: String): BubbleBuilder<Any?, Any?>
-    fun <I, B> show(builder: Bubble<I, B>)
+
+    val bubbles: Live<List<Bubble<Any?, Any?>>>
+    fun makeNewInfo(title: String): BubbleBuilder<Any?, Any?>
+
+    fun makeNewWarning(title: String): BubbleBuilder<Any?, Any?>
+
+    fun makeNewError(title: String): BubbleBuilder<Any?, Any?>
+
+    fun close(title: String)
 }
