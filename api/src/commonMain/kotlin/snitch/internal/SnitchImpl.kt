@@ -34,6 +34,7 @@ internal class SnitchImpl : Snitch {
         bubbles.value = (bubbles.value - found).toInteroperableMutableList()
     }
 
+    override fun makeNewSuccess(title: String): BubbleBuilder<Any?, Any?> = BubbleBuilderImpl(title, Type.Success, this)
     override fun makeNewInfo(title: String): BubbleBuilder<Any?, Any?> = BubbleBuilderImpl(title, Type.Info, this)
     override fun makeNewWarning(title: String): BubbleBuilder<Any?, Any?> = BubbleBuilderImpl(title, Type.Warning, this)
     override fun makeNewError(title: String): BubbleBuilder<Any?, Any?> = BubbleBuilderImpl(title, Type.Error, this)
