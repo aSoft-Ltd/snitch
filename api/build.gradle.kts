@@ -14,14 +14,14 @@ kotlin {
             dependencies {
                 compileOnly(kotlinx.serialization.core)
                 api(projects.presentersActions)
-                api(asoft.live.core)
+                api(projects.liveCore)
                 api(kotlinx.coroutines.core)
             }
         }
 
         val commonTest by getting {
             dependencies {
-                implementation(asoft.expect.coroutines)
+                implementation(projects.expectCoroutines)
                 implementation(projects.snitchFake)
                 implementation(kotlinx.serialization.json)
             }

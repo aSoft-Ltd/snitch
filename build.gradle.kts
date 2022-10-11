@@ -1,10 +1,13 @@
 @Suppress("DSL_SCOPE_VIOLATION") plugins {
-    alias(kotlinz.plugins.root.multiplatform) apply false
-    alias(kotlinz.plugins.root.serialization) apply false
-    alias(asoft.plugins.root.library) apply false
+    alias(androidx.plugins.library) apply false
+    alias(kotlinz.plugins.multiplatform) apply false
+    alias(kotlinz.plugins.serialization) apply false
+    alias(kotlinz.plugins.compose) apply false
+    alias(asoft.plugins.library) apply false
     alias(petuska.plugins.root.npm.publish) apply false
-    alias(bmuschko.plugins.root.docker) apply false
     alias(kotlinz.plugins.dokka)
+    alias(nexus.plugins.publish)
+    alias(asoft.plugins.deploy)
 }
 val tmp = 0
 allprojects {
