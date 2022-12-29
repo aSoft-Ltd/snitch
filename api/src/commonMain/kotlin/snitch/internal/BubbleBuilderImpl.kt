@@ -1,8 +1,10 @@
 package snitch.internal
 
+import actions.Action0I1R
+import actions.ActionsBuilder
+import actions.action0I0R
+import actions.action0I1R
 import kotlinx.collections.interoperable.iMutableListOf
-import presenters.actions.ActionsBuilder
-import presenters.actions.SimpleAction
 import snitch.Bubble
 import snitch.BubbleBuilder
 import snitch.Type
@@ -16,7 +18,7 @@ internal class BubbleBuilderImpl<I, B>(
     private var body: B? = null
     private var timeoutSeconds = Bubble.DEFAULT_TIMEOUT_SECONDS
 
-    private var actions = iMutableListOf<SimpleAction>()
+    private var actions = iMutableListOf<Action0I1R<Unit>>()
 
     private fun build() = Bubble(
         title = title,
@@ -32,7 +34,7 @@ internal class BubbleBuilderImpl<I, B>(
     }
 
     override fun on(name: String, handler: () -> Unit): BubbleBuilder<I, B> {
-        val action = SimpleAction(name, handler)
+        val action = action0I0R(name, handler)
         actions.add(action)
         return this
     }

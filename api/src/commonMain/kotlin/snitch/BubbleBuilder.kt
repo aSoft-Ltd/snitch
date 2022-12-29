@@ -2,7 +2,7 @@
 
 package snitch
 
-import presenters.actions.ActionsBuilder
+import actions.ActionsBuilder
 import kotlin.js.JsExport
 
 interface BubbleBuilder<I, B> : ActionsBuilder<BubbleBuilder<I, B>, () -> Unit> {

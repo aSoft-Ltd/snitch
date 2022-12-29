@@ -3,8 +3,8 @@
 
 package snitch
 
+import actions.Action0I1R
 import kotlinx.collections.interoperable.List
-import presenters.actions.SimpleAction
 import kotlin.js.JsExport
 
 data class Bubble<out I, out B>(
@@ -13,7 +13,7 @@ data class Bubble<out I, out B>(
     val body: B,
     val timeoutSeconds: Int,
     val type: Type,
-    val actions: List<SimpleAction>,
+    val actions: List<Action0I1R<Unit>>,
 ) {
     companion object {
         val DEFAULT_TYPE = Type.Info
