@@ -13,7 +13,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 compileOnly(kotlinx.serialization.core)
-                api(projects.presentersActions)
                 api(projects.liveCore)
                 api(projects.actionsCore)
                 api(kotlinx.coroutines.core)
