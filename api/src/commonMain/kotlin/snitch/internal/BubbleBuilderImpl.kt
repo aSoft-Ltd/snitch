@@ -2,7 +2,7 @@ package snitch.internal
 
 import actions.Action0
 import actions.ActionsBuilder
-import actions.constructors.action0I0R
+import actions.action0I0R
 import kotlinx.collections.interoperable.iMutableListOf
 import snitch.Bubble
 import snitch.BubbleBuilder
