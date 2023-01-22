@@ -12,7 +12,7 @@ internal class BubbleBuilderImpl<I, B>(
     val title: String,
     val type: Type,
     val snitch: SnitchImpl
-) : ActionsBuilder<BubbleBuilder<I, B>, () -> Unit>, BubbleBuilder<I, B> {
+) : BubbleBuilder<I, B>() {
     private var icon: I? = null
     private var body: B? = null
     private var timeoutSeconds = Bubble.DEFAULT_TIMEOUT_SECONDS
