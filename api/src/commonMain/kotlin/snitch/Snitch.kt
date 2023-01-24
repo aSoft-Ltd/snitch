@@ -3,7 +3,7 @@
 
 package snitch
 
-import kotlinx.collections.interoperable.List
+import kollections.List
 import live.Live
 import kotlin.js.JsExport
 

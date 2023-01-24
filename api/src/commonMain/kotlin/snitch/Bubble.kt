@@ -4,7 +4,7 @@
 package snitch
 
 import actions.Action0
-import kotlinx.collections.interoperable.List
+import kollections.List
 import kotlin.js.JsExport
 
 data class Bubble<out I, out B>(

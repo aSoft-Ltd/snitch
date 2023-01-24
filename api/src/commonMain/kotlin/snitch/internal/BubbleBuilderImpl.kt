@@ -3,7 +3,7 @@ package snitch.internal
 import actions.Action0
 import actions.ActionsBuilder
 import actions.action0I0R
-import kotlinx.collections.interoperable.iMutableListOf
+import kollections.iMutableListOf
 import snitch.Bubble
 import snitch.BubbleBuilder
 import snitch.Type

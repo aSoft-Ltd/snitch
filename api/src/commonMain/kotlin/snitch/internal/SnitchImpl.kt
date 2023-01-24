@@ -1,8 +1,8 @@
 package snitch.internal
 
-import kotlinx.collections.interoperable.MutableList
-import kotlinx.collections.interoperable.iMutableListOf
-import kotlinx.collections.interoperable.toInteroperableMutableList
+import kollections.MutableList
+import kollections.iMutableListOf
+import kollections.toIMutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -20,7 +20,7 @@ internal class SnitchImpl : Snitch {
     val scope = CoroutineScope(Dispatchers.Default)
 
     fun <I, B> show(bubble: Bubble<I, B>) {
-        bubbles.value = (bubbles.value + bubble).toInteroperableMutableList()
+        bubbles.value = (bubbles.value + bubble).toIMutableList()
         scope.launch {
             delay(bubble.timeoutSeconds * 1000L)
             close(bubble)
@@ -31,7 +31,7 @@ internal class SnitchImpl : Snitch {
 
     override fun close(title: String) {
         val found = bubbles.value.find { it.title == title } ?: return
-        bubbles.value = (bubbles.value - found).toInteroperableMutableList()
+        bubbles.value = (bubbles.value - found).toIMutableList()
     }
 
     override fun makeNewSuccess(title: String): BubbleBuilder<Any?, Any?> = BubbleBuilderImpl(title, Type.Success, this)
