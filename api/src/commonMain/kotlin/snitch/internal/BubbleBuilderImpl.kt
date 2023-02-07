@@ -32,8 +32,8 @@ internal class BubbleBuilderImpl<I, B>(
         snitch.show(build())
     }
 
-    override fun on(name: String, handler: () -> Unit): BubbleBuilder<I, B> {
-        val action = action0I0R(name, handler)
+    override fun on(name: String, key: String, handler: () -> Unit): BubbleBuilder<I, B> {
+        val action = action0I0R(name, key, handler)
         actions.add(action)
         return this
     }
