@@ -1,8 +1,7 @@
 package snitch.internal
 
-import actions.Action0
-import actions.ActionsBuilder
-import actions.action0I0R
+import kevlar.Action0
+import kevlar.action0
 import kollections.iMutableListOf
 import snitch.Bubble
 import snitch.BubbleBuilder
@@ -33,7 +32,7 @@ internal class BubbleBuilderImpl<I, B>(
     }
 
     override fun on(name: String, key: String, handler: () -> Unit): BubbleBuilder<I, B> {
-        val action = action0I0R(name, key, handler)
+        val action = action0(name, key, handler)
         actions.add(action)
         return this
     }

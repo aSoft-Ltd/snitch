@@ -3,7 +3,7 @@
 
 package snitch
 
-import actions.Action0
+import kevlar.Action0
 import kollections.List
 import kotlin.js.JsExport
 
