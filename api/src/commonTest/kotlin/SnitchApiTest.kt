@@ -3,7 +3,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withContext
-import live.watch
+import cinematic.watch
 import snitch.Snitch
 import snitch.toDetailedString
 import kotlin.test.Test

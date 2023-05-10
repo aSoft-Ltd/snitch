@@ -2,7 +2,7 @@
 
 package snitch
 
-import actions.ActionsBuilder
+import kevlar.ActionsBuilder
 import kotlin.js.JsExport
 
 abstract class BubbleBuilder<I, B> : ActionsBuilder<BubbleBuilder<I, B>, () -> Unit>() {

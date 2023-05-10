@@ -4,7 +4,7 @@
 package snitch
 
 import kollections.List
-import live.Live
+import cinematic.Live
 import kotlin.js.JsExport
 
 interface Snitch {

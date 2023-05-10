@@ -7,8 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import live.MutableLive
-import live.mutableLiveOf
+import cinematic.MutableLive
+import cinematic.mutableLiveOf
 import snitch.Bubble
 import snitch.BubbleBuilder
 import snitch.Snitch
