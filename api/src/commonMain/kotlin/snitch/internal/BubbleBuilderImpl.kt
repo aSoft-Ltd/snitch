@@ -1,8 +1,11 @@
 package snitch.internal
 
 import kevlar.Action0
+import kevlar.ActionsBuilder
 import kevlar.action0
+import kollections.List
 import kollections.iMutableListOf
+import kollections.toIList
 import snitch.Bubble
 import snitch.BubbleBuilder
 import snitch.Type
@@ -35,6 +38,15 @@ internal class BubbleBuilderImpl<I, B>(
         val action = action0(name, key, handler)
         actions.add(action)
         return this
+    }
+
+    override fun sub(name: String, key: String, builder: ActionsBuilder<BubbleBuilder<I, B>, () -> Unit>.() -> Unit) {
+        val subBuilder = BubbleBuilderImpl<I, B>(title, type, snitch).apply(builder)
+        actions.add(action0(name, key, subBuilder.actions))
+    }
+
+    override fun sub(name: String, key: String, actions: List<BubbleBuilder<I, B>>) {
+
     }
 
     override fun withIcon(i: I): BubbleBuilder<I, B> {
