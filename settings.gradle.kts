@@ -1,34 +1,11 @@
-pluginManagement {
-    enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-    repositories {
-        mavenCentral()
-        google()
-        gradlePluginPortal()
-    }
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.namespace == "com.android") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
-            }
-        }
-    }
+import java.io.File
 
-    dependencyResolutionManagement {
-        versionCatalogs {
-            file("gradle/versions").listFiles().map {
-                it.nameWithoutExtension to it.absolutePath
-            }.forEach { (name, path) ->
-                create(name) { from(files(path)) }
-            }
-        }
-    }
+pluginManagement {
+    includeBuild("../build-logic")
 }
 
-val tmp = 1
-
-fun includeRoot(name: String, path: String) {
-    include(":$name")
-    project(":$name").projectDir = File(path)
+plugins {
+    id("multimodule")
 }
 
 fun includeSubs(base: String, path: String = base, vararg subs: String) {
@@ -38,8 +15,10 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
     }
 }
 
-rootProject.name = "picortex"
-// dependencies
-includeSubs("presenters", "../presenters", "actions")
+listOf(
+    "cinematic", "koncurrent", "kommander", "kevlar", "kase"
+).forEach { includeBuild("../$it") }
 
-includeSubs("snitch", ".", "api", "fake")
+rootProject.name = "snitch"
+
+includeSubs("snitch", "../snitch", "api", "fake")

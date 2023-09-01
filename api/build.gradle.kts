@@ -14,7 +14,7 @@ kotlin {
             dependencies {
                 compileOnly(kotlinx.serialization.core)
                 api(libs.cinematic.live.core)
-                api(projects.kevlarCore)
+                api(libs.kevlar.core)
                 api(kotlinx.coroutines.core)
             }
         }
