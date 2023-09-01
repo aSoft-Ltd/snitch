@@ -13,7 +13,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 compileOnly(kotlinx.serialization.core)
-                api(projects.cinematicLiveCore)
+                api(libs.cinematic.live.core)
                 api(projects.kevlarCore)
                 api(kotlinx.coroutines.core)
             }
@@ -21,7 +21,7 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(projects.kommanderCoroutines)
+                implementation(libs.kommander.coroutines)
                 implementation(projects.snitchFake)
                 implementation(kotlinx.serialization.json)
             }
